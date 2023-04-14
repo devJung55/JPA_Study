@@ -69,10 +69,28 @@ public class EntityTests {
 
 //        entityManager.flush();
 //        entityManager.clear();
-
+        
 //        영속 상태 : 1차 캐시에 등록된 상태
+//        준영속 상태 : detached instance이며, detached()를 사용하여 1차 캐시로부터 분리된 상태
 //        비영속 상태 : 1차 캐시에 등록되지 않은 상태
+//        삭제 상태 : remove()를 사용하여 1차 캐시로부터 삭제된 상태
+
 //        영속 상태인 객체일 경우에만 삭제가 가능하다.
         entityManager.remove(foundMember2);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

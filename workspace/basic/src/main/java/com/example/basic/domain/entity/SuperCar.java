@@ -20,8 +20,7 @@ public class SuperCar {
     @NotNull private SuperCarType type;
     @NotNull private String name;
     @NotNull private String color;
-    private Long price;
-    @DateTimeFormat(pattern = "yyyy/MM/dd HH-mm-ss")
+    private Double price;
     private LocalDateTime releaseDate;
 }
 
