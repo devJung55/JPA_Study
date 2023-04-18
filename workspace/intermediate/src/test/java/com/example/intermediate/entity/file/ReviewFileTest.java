@@ -12,42 +12,67 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.UUID;
 
 @SpringBootTest
-@Transactional @Rollback(false)
+@Transactional
+@Rollback(false)
 @Slf4j
 public class ReviewFileTest {
+
     @Autowired
-    ReviewFileDAO reviewFileDAO;
+    private ReviewFileDAO reviewFileDAO;
 
     @Test
-    public void 후기파일추가테스트() {
+    public void saveTest(){
         ReviewFile reviewFile = new ReviewFile();
-
-        reviewFile.setName("멋있는 나의 이미지");
-        reviewFile.setFilePath("2023-04-17 17:39:00");
-        reviewFile.setFileSize(48L);
-        reviewFile.setFileType(FileType.IMAGE);
+        reviewFile.setName("리뷰파일.txt");
+        reviewFile.setFilePath("2023/04/18");
+        reviewFile.setFileSize(1024L);
         reviewFile.setUuid(UUID.randomUUID().toString());
+        reviewFile.setFileType(FileType.TEXT);
 
         reviewFileDAO.save(reviewFile);
     }
 
     @Test
-    public void 후기파일조회테스트() {
-        reviewFileDAO.findById(6L).map(ReviewFile::toString).ifPresent(log::info);
+    public void findByIdTest(){
+        reviewFileDAO.findById(21L)
+                .ifPresentOrElse(
+                        reviewFile -> log.info(reviewFile.getName()),
+                                () -> log.info("존재하지 않는 파일입니다."));
     }
 
     @Test
-    public void 후기파일전체조회테스트() {
-        reviewFileDAO.findAll().forEach(reviewFile -> log.info(reviewFile.toString()));
+    public void findAllTest(){
+        reviewFileDAO.findAll().stream().map(File::toString).forEach(log::info);
     }
 
     @Test
-    public void 후기파일수정테스트() {
-        reviewFileDAO.findById(6L).ifPresent(reviewFile -> reviewFile.setName("정지영의 멋진 사진"));
+    public void updateTest(){
+        reviewFileDAO.findById(21L).ifPresent(reviewFile -> reviewFile.setName("수정.txt"));
     }
 
     @Test
-    public void 후기파일삭제테스트() {
-        reviewFileDAO.findById(6L).ifPresent(reviewFileDAO::delete);
+    public void deleteTest(){
+        reviewFileDAO.findById(21L).ifPresent(reviewFileDAO::delete);
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

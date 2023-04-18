@@ -1,9 +1,6 @@
 package com.example.intermediate.entity.computer;
 
 import com.sun.istack.NotNull;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.Embeddable;
 
@@ -12,7 +9,6 @@ import javax.persistence.Embeddable;
 //     그룹화된 필드는 따로 사용하지 않고 한 번에 사용하는 목적으로 설계한다.
 
 @Embeddable
-@Getter @Setter @ToString
 public class Hardware {
     @NotNull private Integer ram;
     @NotNull private Integer ssd;
