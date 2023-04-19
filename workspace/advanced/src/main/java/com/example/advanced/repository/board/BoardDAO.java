@@ -35,8 +35,12 @@ public class BoardDAO {
 //        따라서 1:N 관계일 경우에는 JOIN을 할 필요가 없다.
 //        String query = "select b from Board b inner join b.replies where b.id = :id";
 
-//        관계의 종류에 상관없이 참조 객체에 모든 정보를 한 번에 가져올 때에는
+//        관계의 종류(다중성)에 상관없이 참조 객체에 모든 정보를 한 번에 가져올 때에는
 //        FETCH JOIN을 사용하면 된다.
+//        fetch 타입이 LAZY로 정해지면, 참조중인 엔티티를 조회할 때 마다 SELECT문이 실행된다.
+//        성능이 저하될 수 있으므로 처음부터 한 방 쿼리로 가져와야 하지만
+//        EAGER를 사용하면, JOIN이 필요 없는 엔티티까지 가져오므로
+//        FETCH JOIN을 사용해서 원하는 엔티티끼리만 정확히 가져와야 한다.
         String query = "select b from Board b join fetch b.replies where b.id = :id";
         return Optional.ofNullable(
                 entityManager
