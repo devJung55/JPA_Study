@@ -16,6 +16,30 @@ public class Question extends Period {
     private String questionTitle;
     private String questionContents;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "question", cascade = CascadeType.REMOVE)
-    private Anwser anwser;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    private Answer answer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
