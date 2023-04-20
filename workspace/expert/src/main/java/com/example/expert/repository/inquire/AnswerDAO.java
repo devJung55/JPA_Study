@@ -1,6 +1,5 @@
 package com.example.expert.repository.inquire;
 
-import com.example.expert.inquire.Answer;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -14,9 +13,9 @@ public class AnswerDAO {
     private EntityManager entityManager;
 
 //    추가
-    public Answer save(Answer answer){
-        entityManager.persist(answer);
-        return answer;
+    public Answer save(Answer TBLAnswer){
+        entityManager.persist(TBLAnswer);
+        return TBLAnswer;
     }
 
 //    조회
@@ -32,7 +31,7 @@ public class AnswerDAO {
     }
 
 //    삭제
-    public void delete(Answer answer){
-        entityManager.remove(answer);
+    public void delete(Answer TBLAnswer){
+        entityManager.remove(TBLAnswer);
     }
 }
