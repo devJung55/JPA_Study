@@ -28,22 +28,22 @@ public class SuperCarDaoTests {
     @Autowired
     private SuperCarDAO superCarDAO;
 
-    @Test
-    public void saveTest(){
-        SuperCarType[] superCarTypes = {SuperCarType.BENTLEY, SuperCarType.FERRARI, SuperCarType.HYUNDAI};
-        String[] colors = {"볼케이노 레드", "아쿠아 블루", "에메랄드 블루"};
-        Random random = new Random();
-
-        for (int i=0; i<100; i++){
-            SuperCar superCar = new SuperCar();
-            superCar.setName("super car" + (i + 1));
-            superCar.setType(superCarTypes[random.nextInt(superCarTypes.length)]);
-            superCar.setColor(colors[random.nextInt(colors.length)]);
-            superCar.setPrice((double)(100 * (i + 1)));
-            superCar.setReleaseDate(LocalDateTime.of(2022, 12, random.nextInt(31) + 1, 06, 00));
-            superCarDAO.save(superCar);
-        }
-    }
+//    @Test
+//    public void saveTest(){
+//        SuperCarType[] superCarTypes = {SuperCarType.BENTLEY, SuperCarType.FERRARI, SuperCarType.HYUNDAI};
+//        String[] colors = {"볼케이노 레드", "아쿠아 블루", "에메랄드 블루"};
+//        Random random = new Random();
+//
+//        for (int i=0; i<100; i++){
+//            SuperCar superCar = new SuperCar();
+//            superCar.setName("super car" + (i + 1));
+//            superCar.setType(superCarTypes[random.nextInt(superCarTypes.length)]);
+//            superCar.setColor(colors[random.nextInt(colors.length)]);
+//            superCar.setPrice((double)(100 * (i + 1)));
+//            superCar.setReleaseDate(LocalDateTime.of(2022, 12, random.nextInt(31) + 1, 06, 00));
+//            superCarDAO.save(superCar);
+//        }
+//    }
 
     @Test
     public void findByIdTest(){

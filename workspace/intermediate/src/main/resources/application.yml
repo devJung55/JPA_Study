@@ -14,7 +14,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.OracleDialect
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
 
     #jpa format
     properties:
@@ -26,3 +26,4 @@ spring:
   output:
     ansi:
       enabled: always
+
