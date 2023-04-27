@@ -22,21 +22,3 @@ public class CarRegistration extends Period {
     @ManyToOne(fetch = FetchType.LAZY)
     private CarOwner carOwner;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

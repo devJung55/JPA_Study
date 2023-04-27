@@ -32,19 +32,4 @@ public class CarOwner {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "carOwner", cascade = CascadeType.PERSIST)
     List<CarRegistration> carRegistrations = new ArrayList<>();
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

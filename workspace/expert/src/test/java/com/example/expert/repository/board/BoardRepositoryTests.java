@@ -1,6 +1,5 @@
 package com.example.expert.repository.board;
 
-import com.example.expert.entity.board.Board;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +28,6 @@ public class BoardRepositoryTests {
                 .getContent().toString());
 //        boardRepository.findAll().forEach(board -> log.info(board.toString()));
 
-    }
-
-    @Test
-    public void findAllTest() {
-        boardRepository.findAll().stream().map(Board::getLikes).forEach(like -> log.info(like.toString()));
     }
 }
 
