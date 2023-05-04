@@ -19,4 +19,5 @@ public class ProductOrder {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Order order;
+
 }

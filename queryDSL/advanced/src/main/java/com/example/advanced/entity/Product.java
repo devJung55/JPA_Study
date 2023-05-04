@@ -26,13 +26,6 @@ public class Product {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     private List<ProductOrder> productOrders;
-
-    @Builder
-    public Product(String productName, Long productStock, Long productPrice) {
-        this.productName = productName;
-        this.productStock = productStock;
-        this.productPrice = productPrice;
-    }
 }
 
 

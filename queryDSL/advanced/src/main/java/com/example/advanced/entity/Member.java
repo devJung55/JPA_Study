@@ -4,8 +4,6 @@ import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "TBL_MEMBER")
@@ -21,15 +19,4 @@ public class Member {
     @NotNull private String memberName;
     @Embedded
     @NotNull private Address address;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Payment> payments = new ArrayList<>();
-
-    @Builder
-    public Member(String memberId, String memberPassword, String memberName, Address address) {
-        this.memberId = memberId;
-        this.memberPassword = memberPassword;
-        this.memberName = memberName;
-        this.address = address;
-    }
 }
